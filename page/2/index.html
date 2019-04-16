@@ -320,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/pthread-mutexattr-getprioceiling/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/sched-get-priority-min/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -340,7 +340,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/04/05/pthread-mutexattr-getprioceiling/" class="post-title-link" itemprop="url">pthread_mutexattr_getprioceiling</a>
+                <a href="/2019/04/12/sched-get-priority-min/" class="post-title-link" itemprop="url">sched_get_priority_min</a>
               
             
           </h1>
@@ -365,9 +365,13 @@
                 
               
 
-              <time title="Erstellt: 2019-04-05 23:36:12" itemprop="dateCreated datePublished" datetime="2019-04-05T23:36:12+08:00">2019-04-05</time>
+              <time title="Erstellt: 2019-04-12 09:05:50 / Geändert am: 09:16:54" itemprop="dateCreated datePublished" datetime="2019-04-12T09:05:50+08:00">2019-04-12</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -420,7 +424,12 @@
       
         
           
-            
+            <h1 id="1-Brief"><a href="#1-Brief" class="headerlink" title="1. Brief"></a>1. Brief</h1><p>Get priority limits (REALTIME).</p>
+<p>The functions shall return the appropriate minimum.</p>
+<h1 id="2-Syntax"><a href="#2-Syntax" class="headerlink" title="2. Syntax"></a>2. Syntax</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int sched_get_priority_min(int policy);</span><br></pre></td></tr></table></figure>
+<h1 id="3-Param"><a href="#3-Param" class="headerlink" title="3. Param"></a>3. Param</h1><h2 id="policy"><a href="#policy" class="headerlink" title="policy"></a>policy</h2><p>The value of <em>policy</em> shall be one of the scheduling policy values defined in &lt;sched.h&gt;.</p>
+<h1 id="4-Return-Value"><a href="#4-Return-Value" class="headerlink" title="4. Return Value"></a>4. Return Value</h1><p>Upon successful, return appropriate minimum value; otherwise, return -1, and set errno to indicate the error.</p>
+<h1 id="5-Remark"><a href="#5-Remark" class="headerlink" title="5. Remark"></a>5. Remark</h1><h1 id="6-Example"><a href="#6-Example" class="headerlink" title="6. Example"></a>6. Example</h1><h1 id="7-Issue"><a href="#7-Issue" class="headerlink" title="7. Issue"></a>7. Issue</h1>
           
         
       
@@ -476,7 +485,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/pthread-mutexattr-destroy/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/sched-get-priority-max/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -496,7 +505,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/04/05/pthread-mutexattr-destroy/" class="post-title-link" itemprop="url">pthread_mutexattr_destroy</a>
+                <a href="/2019/04/12/sched-get-priority-max/" class="post-title-link" itemprop="url">sched_get_priority_max</a>
               
             
           </h1>
@@ -521,9 +530,13 @@
                 
               
 
-              <time title="Erstellt: 2019-04-05 23:36:04" itemprop="dateCreated datePublished" datetime="2019-04-05T23:36:04+08:00">2019-04-05</time>
+              <time title="Erstellt: 2019-04-12 09:05:44 / Geändert am: 09:17:00" itemprop="dateCreated datePublished" datetime="2019-04-12T09:05:44+08:00">2019-04-12</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -576,7 +589,12 @@
       
         
           
-            
+            <h1 id="1-Brief"><a href="#1-Brief" class="headerlink" title="1. Brief"></a>1. Brief</h1><p>Get priority limits (REALTIME).</p>
+<p>The functions shall return the appropriate maximum.</p>
+<h1 id="2-Syntax"><a href="#2-Syntax" class="headerlink" title="2. Syntax"></a>2. Syntax</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int sched_get_priority_max(int policy);</span><br></pre></td></tr></table></figure>
+<h1 id="3-Param"><a href="#3-Param" class="headerlink" title="3. Param"></a>3. Param</h1><h2 id="policy"><a href="#policy" class="headerlink" title="policy"></a>policy</h2><p>The value of <em>policy</em> shall be one of the scheduling policy values defined in &lt;sched.h&gt;.</p>
+<h1 id="4-Return-Value"><a href="#4-Return-Value" class="headerlink" title="4. Return Value"></a>4. Return Value</h1><p>Upon successful, return appropriate maximum value; otherwise, return -1, and set errno to indicate the error.</p>
+<h1 id="5-Remark"><a href="#5-Remark" class="headerlink" title="5. Remark"></a>5. Remark</h1><h1 id="6-Example"><a href="#6-Example" class="headerlink" title="6. Example"></a>6. Example</h1><h1 id="7-Issue"><a href="#7-Issue" class="headerlink" title="7. Issue"></a>7. Issue</h1>
           
         
       
@@ -632,7 +650,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/pthread-mutex-unlock/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/11/sched-getparam/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -652,7 +670,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/04/05/pthread-mutex-unlock/" class="post-title-link" itemprop="url">pthread_mutex_unlock</a>
+                <a href="/2019/04/11/sched-getparam/" class="post-title-link" itemprop="url">sched_getparam</a>
               
             
           </h1>
@@ -677,9 +695,13 @@
                 
               
 
-              <time title="Erstellt: 2019-04-05 23:35:58" itemprop="dateCreated datePublished" datetime="2019-04-05T23:35:58+08:00">2019-04-05</time>
+              <time title="Erstellt: 2019-04-11 18:19:03 / Geändert am: 19:34:29" itemprop="dateCreated datePublished" datetime="2019-04-11T18:19:03+08:00">2019-04-11</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -695,7 +717,35 @@
                 <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/unknown/" itemprop="url" rel="index"><span itemprop="name">unknown</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/it/" itemprop="url" rel="index"><span itemprop="name">it</span></a></span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/it/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/it/linux/api/" itemprop="url" rel="index"><span itemprop="name">api</span></a></span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/it/linux/api/posix/" itemprop="url" rel="index"><span itemprop="name">posix</span></a></span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/it/linux/api/posix/scheduler/" itemprop="url" rel="index"><span itemprop="name">scheduler</span></a></span>
 
                 
                 
@@ -732,7 +782,18 @@
       
         
           
-            
+            <h1 id="1-Brief"><a href="#1-Brief" class="headerlink" title="1. Brief"></a>1. Brief</h1><p>Get scheduling parameters (REALTIME).</p>
+<h1 id="2-Syntax"><a href="#2-Syntax" class="headerlink" title="2. Syntax"></a>2. Syntax</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int sched_getparam(pid_t pid, struct sched_param *param);</span><br></pre></td></tr></table></figure>
+<h1 id="3-Param"><a href="#3-Param" class="headerlink" title="3. Param"></a>3. Param</h1><h2 id="pid"><a href="#pid" class="headerlink" title="pid"></a>pid</h2><p>specify process pid.</p>
+<p>If a process specified by pid exists, and if the calling process has permission, the scheduling parameters for the process whose process ID is equal to pid shall be returned.</p>
+<p>If pid is zero, the scheduling parameters for the calling process shall be returned. The behavior of the sched_getparam() function is unspecified if the value of pid is negative.</p>
+<h2 id="param"><a href="#param" class="headerlink" title="param"></a>param</h2><p>A sched_param structure object pointer that get scheduling parameters.</p>
+<h1 id="4-Return-Value"><a href="#4-Return-Value" class="headerlink" title="4. Return Value"></a>4. Return Value</h1><p>Upon successful, return zero; otherwise, return -1, and set errno to indicate the error.</p>
+<h1 id="5-Remark"><a href="#5-Remark" class="headerlink" title="5. Remark"></a>5. Remark</h1><p>-</p>
+<ul>
+<li>The behavior of the sched_getparam() function is unspecified if the value of pid is negative.</li>
+</ul>
+<h1 id="6-Example"><a href="#6-Example" class="headerlink" title="6. Example"></a>6. Example</h1><h1 id="7-Issue"><a href="#7-Issue" class="headerlink" title="7. Issue"></a>7. Issue</h1>
           
         
       
@@ -788,7 +849,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/pthread-mutex-trylock/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/11/posix-scheduler-guide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -808,7 +869,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/04/05/pthread-mutex-trylock/" class="post-title-link" itemprop="url">pthread_mutex_trylock</a>
+                <a href="/2019/04/11/posix-scheduler-guide/" class="post-title-link" itemprop="url">posix scheduler guide</a>
               
             
           </h1>
@@ -833,9 +894,25 @@
                 
               
 
-              <time title="Erstellt: 2019-04-05 23:35:52" itemprop="dateCreated datePublished" datetime="2019-04-05T23:35:52+08:00">2019-04-05</time>
+              <time title="Erstellt: 2019-04-11 15:20:41" itemprop="dateCreated datePublished" datetime="2019-04-11T15:20:41+08:00">2019-04-11</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-04-12 19:54:27" itemprop="dateModified" datetime="2019-04-12T19:54:27+08:00">2019-04-12</time>
+              
             
           </span>
 
@@ -888,7 +965,147 @@
       
         
           
-            
+            <h1 id="1-Concept"><a href="#1-Concept" class="headerlink" title="1. Concept"></a><code>1. Concept</code></h1><h2 id="Scheduler"><a href="#Scheduler" class="headerlink" title="Scheduler"></a><code>Scheduler</code></h2><p>The scheduler is the kernel component that decides which runnable thread will be executed by the CPU next.</p>
+<p>所有操作系统在设计调度器的时候都追求两个目标中的一个:吞吐率,响应速度.</p>
+<p>吞吐率:指的是CPU在一段时间内尽可能的把时间花在有用功上.意思是说让CPU在相同时间内完成的任务,运行的指令越多那么吞吐率就越高.</p>
+<p>响应速度:最小化某个任务的响应时间,哪怕牺牲其他任务为代价,例如点一下鼠标就立马有反应.</p>
+<p>吞吐率和响应速度是有一点矛盾的.</p>
+<p>实时操作系统,一个高优先级的任务一就绪,就马上把低优先级的任务打断,然后占有CPU.</p>
+<p>然而抢占会令吞吐率下降,因为抢占的时候会进行上下文的切换和出现cache miss,那么有的时间就耗费在任务切换的过程中,吞吐率会下降.</p>
+<h2 id="Preemption"><a href="#Preemption" class="headerlink" title="Preemption"></a>Preemption</h2><p>A high level thread maybe break low level thread, and preempt cpu to run.</p>
+<h2 id="Non-Preemption"><a href="#Non-Preemption" class="headerlink" title="Non-Preemption"></a>Non-Preemption</h2><p>除非任务自己结束,否则将会一直执行.</p>
+<h2 id="I-O消耗型任务-amp-cpu消耗型任务"><a href="#I-O消耗型任务-amp-cpu消耗型任务" class="headerlink" title="I/O消耗型任务 &amp; cpu消耗型任务"></a>I/O消耗型任务 &amp; cpu消耗型任务</h2><p>I/O消耗型任务是指那些大部分时间都在等待I/O操作的任务.</p>
+<p>cpu耗费型的任务则是指把大多数时间用于执行代码的任务.</p>
+<p>为了保证交互式应用和桌面系统的性能,一般Linux更倾向于优先调度I/O消耗型进程.</p>
+<h2 id="The-Nice-Value"><a href="#The-Nice-Value" class="headerlink" title="The Nice Value"></a>The Nice Value</h2><p>The nice value is an attribute that can be used to influence the CPU scheduler to favor or disfavor a process in scheduling decisions.  It affects the scheduling of SCHED_OTHER and SCHED_BATCH (see below) processes.  The nice value can be modified using nice(2), setpriority(2), or sched_setattr(2).</p>
+<p>According to POSIX.1, the nice value is a per-process attribute; that is, the threads in a process should share a nice value.  However, on Linux, the nice value is a per-thread attribute: different threads in the same process may have different nice values.</p>
+<p>The range of the nice value varies across UNIX systems.  On modern Linux, the range is -20 (high priority) to +19 (low priority).  On some other systems, the range is -20 to 20.  Very early Linux kernels (Before Linux 2.0) had the range -infinity to15.</p>
+<p>The degree to which the nice value affects the relative scheduling of SCHED_OTHER processes likewise varies across UNIX systems and across Linux kernel versions.</p>
+<p>With the advent of the CFS scheduler in kernel 2.6.23, Linux adopted an algorithm that causes relative differences in nice values to have a much stronger effect.  In the current implementation, each unit of difference in the nice values of two processes results in a factor of 1.25 in the degree to which the scheduler favors the higher priority process.  This causes very low nice values (+19) to truly provide little CPU to a process whenever there is any other higher priority load on the system, and makes high nice values (-20) deliver most of the CPU to applications that require it (e.g., some audio applica‐ tions).</p>
+<p>On Linux, the RLIMIT_NICE resource limit can be used to define a limit to which an unprivileged process’s nice value can be raised; see setrlimit(2) for details.</p>
+<p>For further details on the nice value, see the subsections on the autogroup feature and group scheduling, below.</p>
+<h2 id="Scheduling-Policies"><a href="#Scheduling-Policies" class="headerlink" title="Scheduling Policies"></a>Scheduling Policies</h2><p>Each thread has an associated scheduling policy and a static scheduling priority <em>sched_priority</em>. The scheduler makes its decisions based on knowledge of the scheduling policy and static priority of all threads on the system.</p>
+<p>For threads scheduled under one of the normal scheduling policies (SCHED_OTHER, SCHED_IDLE, SCHED_BATCH), <em>sched_priority</em> is not used in scheduling decisions (it must be specified as 0).</p>
+<p>Processes scheduled under one of the real-time policies (SCHED_FIFO, SCHED_RR) have a <em>sched_priority</em> value in the range 1 (low) to 99 (high). (As the numbers imply, real-time threads always have higher priority than normal threads.)<br>Note well: POSIX.1 requires an implementation to support only a minimum 32 distinct priority levels for the real-time policies, and some systems supply just this minimum. Portable programs should use sched_get_priority_min(2) and sched_get_priority_max(2) to find the range of priorities supported for a particular policy.</p>
+<p>Conceptually, the scheduler maintains a list of runnable threads for each possible <em>sched_priority</em> value. In order to determine which thread runs next, the scheduler looks for the nonempty list with the highest static priority and selects the thread at the head of this list.</p>
+<p>A thread’s scheduling policy determines where it will be inserted into the list of threads with equal static priority and how it will move inside this list.</p>
+<p>All scheduling is preemptive: if a thread with a higher static priority becomes ready to run, the currently running thread will be preempted and returned to the wait list for its static priority level. The scheduling policy determines the ordering only within the list of runnable threads with equal static priority.</p>
+<p>Scheduling Policies are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Macro</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SCHED_FIFO</td>
+<td>First in-first out scheduling</td>
+</tr>
+<tr>
+<td>SCHED_RR</td>
+<td>Round-robin scheduling</td>
+</tr>
+<tr>
+<td>SCHED_DEADLINE</td>
+<td>Sporadic task model deadline scheduling</td>
+</tr>
+<tr>
+<td>SCHED_OTHER</td>
+<td>Default Linux time-sharing scheduling</td>
+</tr>
+<tr>
+<td>SCHED_BATCH</td>
+<td>Scheduling batch processes</td>
+</tr>
+<tr>
+<td>SCHED_IDLE</td>
+<td>Scheduling very low priority jobs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="SCHED-FIFO"><a href="#SCHED-FIFO" class="headerlink" title="SCHED_FIFO"></a>SCHED_FIFO</h3><p>First in-first out scheduling.</p>
+<p>SCHED_FIFO can be used only with static priorities higher than 0, which means that when a SCHED_FIFO threads becomes runnable, it will always immediately preempt any currently running SCHED_OTHER, SCHED_BATCH, or SCHED_IDLE thread.  SCHED_FIFO is a simple scheduling algorithm without time slicing.  For threads scheduled under the SCHED_FIFO policy, the following rules apply:</p>
+<ol>
+<li><p>A running SCHED_FIFO thread that has been preempted by another thread of higher priority will stay at the head of the list for its priority and will resume execution as soon as all threads of higher priority are blocked again.</p>
+</li>
+<li><p>When a blocked SCHED_FIFO thread becomes runnable, it will be inserted at the end of the list for its priority.</p>
+</li>
+<li><p>If a call to sched_setscheduler(2), sched_setparam(2), sched_setattr(2), pthread_setschedparam(3), or pthread_setschedprio(3) changes the priority of the running or runnable SCHED_FIFO thread identified by pid the effect on the thread’s position in the list depends on the direction of the change to threads priority:</p>
+<ol>
+<li><p>If the thread’s priority is raised, it is placed at the end of the list for its new priority.  As a consequence, it may preempt a currently running thread with the same priority.</p>
+</li>
+<li><p>If the thread’s priority is unchanged, its position in the run list is unchanged.</p>
+</li>
+<li><p>If the thread’s priority is lowered, it is placed at the front of the list for its new priority.</p>
+<p> According to POSIX.1-2008, changes to a thread’s priority (or policy) using any mechanism other than pthread_setschedprio(3) should result in the thread being placed at the end of the list for its priority.</p>
+</li>
+</ol>
+</li>
+<li><p>A thread calling sched_yield(2) will be put at the end of the list.</p>
+</li>
+</ol>
+<p>No other events will move a thread scheduled under the SCHED_FIFO policy in the wait list of runnable threads with equal static priority.</p>
+<p>A SCHED_FIFO thread runs until either it is blocked by an I/O request, it is preempted by a higher priority thread, or it calls sched_yield(2).</p>
+<h3 id="SCHED-RR"><a href="#SCHED-RR" class="headerlink" title="SCHED_RR"></a>SCHED_RR</h3><p>SCHED_RR is a simple enhancement of SCHED_FIFO.  Everything described above for SCHED_FIFO also applies to SCHED_RR, except that each thread is allowed to run only for a maximum time quantum.  If a SCHED_RR thread has been running for a time period equal to or longer than the time quantum, it will be put at the end of the list for its priority.  A SCHED_RR thread that has been preempted by a higher priority thread and subsequently resumes execution as a running thread will complete the unexpired portion of its round-robin time quantum.  The length of the time quantum can be retrieved using sched_rr_get_interval(2).</p>
+<h3 id="SCHED-DEADLINE"><a href="#SCHED-DEADLINE" class="headerlink" title="SCHED_DEADLINE"></a>SCHED_DEADLINE</h3><p>Sporadic task model deadline scheduling.</p>
+<p>Since version 3.14, Linux provides a deadline scheduling policy (SCHED_DEADLINE). This policy is currently implemented using GEDF (Global Earliest Deadline First) in conjunction with CBS (Constant Bandwidth Server).  To set and fetch this policy and associated attributes, one must use the Linux-specific sched_setattr(2) and sched_getattr(2) system calls.</p>
+<p>A sporadic task is one that has a sequence of jobs, where each job is activated at most once per period.  Each job also has a relative deadline, before which it should finish execution, and a computation time, which is the CPU time necessary for executing the job. The moment when a task wakes up because a new job has to be executed is called the arrival time (also referred to as the request time or release time). The start time is the time at which a task starts its execution. The absolute deadline is thus obtained by adding the relative deadline to the arrival time.</p>
+<p>The following diagram clarifies these terms:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">arrival/wakeup                    absolute deadline</span><br><span class="line">    |    start time                    |</span><br><span class="line">    |        |                         |</span><br><span class="line">    v        v                         v</span><br><span class="line">-----x--------xooooooooooooooooo--------x--------x---</span><br><span class="line">              |&lt;- comp. time -&gt;|</span><br><span class="line">    |&lt;------- relative deadline ------&gt;|</span><br><span class="line">    |&lt;-------------- period -------------------&gt;|</span><br></pre></td></tr></table></figure>
+<p>When setting a SCHED_DEADLINE policy for a thread using sched_setattr(2), one can specify three parameters: Runtime, Deadline, and Period.  These parameters do not necessarily correspond to the aforementioned terms: usual practice is to set Runtime to something bigger than the average computation time (or worst-case execution time for hard real-time tasks), Deadline to the relative deadline, and Period to the period of the task.  Thus, for SCHED_DEADLINE scheduling, we have:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">arrival/wakeup                    absolute deadline</span><br><span class="line">    |    start time                    |</span><br><span class="line">    |        |                         |</span><br><span class="line">    v        v                         v</span><br><span class="line">-----x--------xooooooooooooooooo--------x--------x---</span><br><span class="line">              |&lt;-- Runtime -------&gt;|</span><br><span class="line">    |&lt;----------- Deadline -----------&gt;|</span><br><span class="line">    |&lt;-------------- Period -------------------&gt;|</span><br></pre></td></tr></table></figure>
+<p>The three deadline-scheduling parameters correspond to the sched_runtime, sched_deadline, and sched_period fields of the sched_attr structure; see sched_setattr(2). These fields express values in nanoseconds. If sched_period is specified as 0, then it is made the same as sched_deadline.</p>
+<p>The kernel requires that:<br>    sched_runtime &lt;= sched_deadline &lt;= sched_period</p>
+<p>In addition, under the current implementation, all of the parameter values must be at least 1024 (i.e., just over one microsecond, which is the resolution of the implementation), and less than 2^63.  If any of these checks fails, sched_setattr(2) fails with the error EINVAL.</p>
+<p>The CBS guarantees non-interference between tasks, by throttling threads that attempt to over-run their specified Runtime.</p>
+<p>To ensure deadline scheduling guarantees, the kernel must prevent situations where the set of SCHED_DEADLINE threads is not feasible (schedulable) within the given constraints.  The kernel thus performs an admittance test when setting or changing SCHED_DEADLINE policy and attributes.  This admission test calculates whether the change is feasible; if it is not, sched_setattr(2) fails with the error EBUSY.</p>
+<p>For example, it is required (but not necessarily sufficient) for the total utilization to be less than or equal to the total number of CPUs available, where, since each thread can maximally run for Runtime per Period, that thread’s utilization is its Runtime divided by its Period.</p>
+<p>In order to fulfill the guarantees that are made when a thread is admitted to the SCHED_DEADLINE policy, SCHED_DEADLINE threads are the highest priority (user controllable) threads in the system; if any SCHED_DEADLINE thread is runnable, it will preempt any thread scheduled under one of the other policies.</p>
+<p>A call to fork(2) by a thread scheduled under the SCHED_DEADLINE policy fails with the error EAGAIN, unless the thread has its reset-on-fork flag set (see below).</p>
+<p>A SCHED_DEADLINE thread that calls sched_yield(2) will yield the current job and wait for a new period to begin.</p>
+<h3 id="SCHED-OTHER"><a href="#SCHED-OTHER" class="headerlink" title="SCHED_OTHER"></a>SCHED_OTHER</h3><p>Default Linux time-sharing scheduling.</p>
+<p>SCHED_OTHER can be used at only static priority 0 (i.e., threads under real-time policies always have priority over SCHED_OTHER processes). SCHED_OTHER is the standard Linux time-sharing scheduler that is intended for all threads that do not require the special real-time mechanisms.</p>
+<p>The thread to run is chosen from the static priority 0 list based on a dynamic priority that is determined only inside this list.  The dynamic priority is based on the nice value (see below) and is increased for each time quantum the thread is ready to run, but denied to run by the scheduler.  This ensures fair progress among all SCHED_OTHER threads.</p>
+<p>In the Linux kernel source code, the SCHED_OTHER policy is actually named SCHED_NORMAL.</p>
+<h3 id="SCHED-BATCH"><a href="#SCHED-BATCH" class="headerlink" title="SCHED_BATCH"></a>SCHED_BATCH</h3><p>Scheduling batch processes.</p>
+<p>(Since Linux 2.6.16.)  SCHED_BATCH can be used only at static priority 0.  This policy is similar to SCHED_OTHER in that it schedules the thread according to its dynamic priority (based on the nice value).  The difference is that this policy will cause the scheduler to always assume that the thread is CPU-intensive.  Consequently, the scheduler will apply a small scheduling penalty with respect to wakeup behavior, so that this thread is mildly disfavored in scheduling decisions.</p>
+<p>This policy is useful for workloads that are noninteractive, but do not want to lower their nice value, and for workloads that want a deterministic scheduling policy without interactivity causing extra preemptions (between the workload’s tasks).</p>
+<h3 id="SCHED-IDLE"><a href="#SCHED-IDLE" class="headerlink" title="SCHED_IDLE"></a>SCHED_IDLE</h3><p>Scheduling very low priority jobs.</p>
+<p>(Since Linux 2.6.23.)  SCHED_IDLE can be used only at static priority 0; the process nice value has no influence for this policy.</p>
+<p>This policy is intended for running jobs at extremely low priority (lower even than a +19 nice value with the SCHED_OTHER or SCHED_BATCH policies).</p>
+<h2 id="Real-time-Policy"><a href="#Real-time-Policy" class="headerlink" title="Real-time Policy"></a>Real-time Policy</h2><p>Real-time Policy is which thread have scheduling policy, one of SCHED_FIFO , SCHED_RR.</p>
+<p>The thread of Real-time Policy have a sched_priority value in the range 1 (low) to 99 (high).</p>
+<p>The thread of non Real-time Policy is normal thread, real-time threads always have higher priority than normal threads.</p>
+<h2 id="static-priority"><a href="#static-priority" class="headerlink" title="static priority"></a>static priority</h2><p>sched_priority value.</p>
+<h1 id="2-Overview-of-Api"><a href="#2-Overview-of-Api" class="headerlink" title="2. Overview of Api"></a>2. Overview of Api</h1><ul>
+<li><p>sched_setscheduler(2)<br>Set the scheduling policy and parameters of a specified thread.</p>
+</li>
+<li><p>sched_getscheduler(2)<br>Return the scheduling policy of a specified thread.</p>
+</li>
+<li><p>sched_setparam(2)<br>Set the scheduling parameters of a specified thread.</p>
+</li>
+<li><p>sched_getparam(2)<br>Fetch the scheduling parameters of a specified thread.</p>
+</li>
+<li><p>sched_get_priority_max(2)<br>Return the maximum priority available in a specified scheduling policy.</p>
+</li>
+<li><p>sched_get_priority_min(2)<br>Return the minimum priority available in a specified scheduling policy.</p>
+</li>
+<li><p>sched_rr_get_interval(2)<br>Fetch the quantum used for threads that are scheduled under the “round-robin” scheduling policy.</p>
+</li>
+<li><p>sched_yield(2)<br>Cause the caller to relinquish the CPU, so that some other thread be executed.</p>
+</li>
+<li><p>sched_setaffinity(2)<br>(Linux-specific) Set the CPU affinity of a specified thread.</p>
+</li>
+<li><p>sched_getaffinity(2)<br>(Linux-specific) Get the CPU affinity of a specified thread.</p>
+</li>
+<li><p>sched_setattr(2)<br>Set the scheduling policy and parameters of a specified thread.  This (Linux-specific) system call provides a superset of the functionality of sched_setscheduler(2) and sched_setparam(2).</p>
+</li>
+<li><p>sched_getattr(2)<br>Fetch the scheduling policy and parameters of a specified thread.  This (Linux-specific) system call provides a superset of the functionality of sched_getscheduler(2) and sched_getparam(2).</p>
+</li>
+</ul>
+
           
         
       
@@ -944,7 +1161,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/pthread-mutex-timedlock/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/11/pthread-attr-init/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -964,7 +1181,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/04/05/pthread-mutex-timedlock/" class="post-title-link" itemprop="url">pthread_mutex_timedlock</a>
+                <a href="/2019/04/11/pthread-attr-init/" class="post-title-link" itemprop="url">pthread_attr_init</a>
               
             
           </h1>
@@ -989,9 +1206,13 @@
                 
               
 
-              <time title="Erstellt: 2019-04-05 23:35:44" itemprop="dateCreated datePublished" datetime="2019-04-05T23:35:44+08:00">2019-04-05</time>
+              <time title="Erstellt: 2019-04-11 14:00:47 / Geändert am: 14:12:20" itemprop="dateCreated datePublished" datetime="2019-04-11T14:00:47+08:00">2019-04-11</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -1044,7 +1265,21 @@
       
         
           
-            
+            <h1 id="1-Brief"><a href="#1-Brief" class="headerlink" title="1. Brief"></a>1. Brief</h1><p>Initialize the thread attributes object.</p>
+<h1 id="2-Syntax"><a href="#2-Syntax" class="headerlink" title="2. Syntax"></a>2. Syntax</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int pthread_attr_init(pthread_attr_t *attr);</span><br></pre></td></tr></table></figure>
+<h1 id="3-Param"><a href="#3-Param" class="headerlink" title="3. Param"></a>3. Param</h1><h2 id="attr"><a href="#attr" class="headerlink" title="attr"></a>attr</h2><p>Thread attributes object.</p>
+<h1 id="4-Return-Value"><a href="#4-Return-Value" class="headerlink" title="4. Return Value"></a>4. Return Value</h1><p>Upon successful, return zero; otherwise, an error number shall be returned to indicate the error.</p>
+<h1 id="5-Remark"><a href="#5-Remark" class="headerlink" title="5. Remark"></a>5. Remark</h1><ul>
+<li><p>The pthread_attr_init() function shall initialize a thread attributes object attr with the default value for all of the individual attributes used by a given implementation.</p>
+</li>
+<li><p>The resulting attributes object (possibly modified by setting individual attribute values) when used by pthread_create() defines the attributes of the thread created. A single attributes object can be used in multiple simultaneous calls to pthread_create().</p>
+</li>
+</ul>
+<p>-</p>
+<ul>
+<li>Results are undefined if pthread_attr_init() is called specifying an already initialized attr attributes object.</li>
+</ul>
+<h1 id="6-Example"><a href="#6-Example" class="headerlink" title="6. Example"></a>6. Example</h1><h1 id="7-Issue"><a href="#7-Issue" class="headerlink" title="7. Issue"></a>7. Issue</h1>
           
         
       
@@ -1100,7 +1335,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/pthread-mutex-setprioceiling/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/11/pthread-attr-destroy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1120,7 +1355,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/04/05/pthread-mutex-setprioceiling/" class="post-title-link" itemprop="url">pthread_mutex_setprioceiling</a>
+                <a href="/2019/04/11/pthread-attr-destroy/" class="post-title-link" itemprop="url">pthread_attr_destroy</a>
               
             
           </h1>
@@ -1145,9 +1380,13 @@
                 
               
 
-              <time title="Erstellt: 2019-04-05 23:35:38" itemprop="dateCreated datePublished" datetime="2019-04-05T23:35:38+08:00">2019-04-05</time>
+              <time title="Erstellt: 2019-04-11 12:08:12 / Geändert am: 14:14:42" itemprop="dateCreated datePublished" datetime="2019-04-11T12:08:12+08:00">2019-04-11</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -1200,7 +1439,24 @@
       
         
           
-            
+            <h1 id="1-Brief"><a href="#1-Brief" class="headerlink" title="1. Brief"></a>1. Brief</h1><p>Destroy the thread attributes object.</p>
+<h1 id="2-Syntax"><a href="#2-Syntax" class="headerlink" title="2. Syntax"></a>2. Syntax</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int pthread_attr_destroy(pthread_attr_t *attr);</span><br></pre></td></tr></table></figure>
+<h1 id="3-Param"><a href="#3-Param" class="headerlink" title="3. Param"></a>3. Param</h1><h2 id="attr"><a href="#attr" class="headerlink" title="attr"></a>attr</h2><p>Thread attributes object.</p>
+<h1 id="4-Return-Value"><a href="#4-Return-Value" class="headerlink" title="4. Return Value"></a>4. Return Value</h1><p>Upon successful, return zero; otherwise, an error number shall be returned to indicate the error.</p>
+<h1 id="5-Remark"><a href="#5-Remark" class="headerlink" title="5. Remark"></a>5. Remark</h1><ul>
+<li><p>The pthread_attr_destroy() function shall destroy a thread attributes object. An implementation may cause pthread_attr_destroy() to set attr to an implementation-defined invalid value.</p>
+</li>
+<li><p>A destroyed attr attributes object can be reinitialized using pthread_attr_init().</p>
+</li>
+</ul>
+<p>-</p>
+<ul>
+<li><p>A destroyed attr attributes object can be reinitialized using pthread_attr_init(); the results of otherwise referencing the object after it has been destroyed are undefined.</p>
+</li>
+<li><p>The behavior is undefined if the value specified by the attr argument to pthread_attr_destroy() does not refer to an initialized thread attributes object.</p>
+</li>
+</ul>
+<h1 id="6-Example"><a href="#6-Example" class="headerlink" title="6. Example"></a>6. Example</h1><h1 id="7-Issue"><a href="#7-Issue" class="headerlink" title="7. Issue"></a>7. Issue</h1>
           
         
       
@@ -1256,7 +1512,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/pthread-mutex-lock/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/11/pthread-atfork/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1276,7 +1532,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/04/05/pthread-mutex-lock/" class="post-title-link" itemprop="url">pthread_mutex_lock</a>
+                <a href="/2019/04/11/pthread-atfork/" class="post-title-link" itemprop="url">pthread_atfork</a>
               
             
           </h1>
@@ -1301,9 +1557,13 @@
                 
               
 
-              <time title="Erstellt: 2019-04-05 23:35:31" itemprop="dateCreated datePublished" datetime="2019-04-05T23:35:31+08:00">2019-04-05</time>
+              <time title="Erstellt: 2019-04-11 10:29:03 / Geändert am: 12:09:50" itemprop="dateCreated datePublished" datetime="2019-04-11T10:29:03+08:00">2019-04-11</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -1356,7 +1616,24 @@
       
         
           
-            
+            <h1 id="1-Brief"><a href="#1-Brief" class="headerlink" title="1. Brief"></a>1. Brief</h1><p>Register fork handlers.</p>
+<h1 id="2-Syntax"><a href="#2-Syntax" class="headerlink" title="2. Syntax"></a>2. Syntax</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int pthread_atfork(void (*prepare)(void),</span><br><span class="line">                   void (*parent)(void),</span><br><span class="line">                   void (*child)(void));</span><br></pre></td></tr></table></figure>
+<h1 id="3-Param"><a href="#3-Param" class="headerlink" title="3. Param"></a>3. Param</h1><h2 id="prepare"><a href="#prepare" class="headerlink" title="prepare"></a>prepare</h2><p>The prepare fork handler.</p>
+<h2 id="parent"><a href="#parent" class="headerlink" title="parent"></a>parent</h2><p>The parent fork handler.</p>
+<h2 id="child"><a href="#child" class="headerlink" title="child"></a>child</h2><p>The child fork handler.</p>
+<h1 id="4-Return-Value"><a href="#4-Return-Value" class="headerlink" title="4. Return Value"></a>4. Return Value</h1><p>Upon successful, return zero; otherwise, an error number shall be returned to indicate the error.</p>
+<h1 id="5-Remark"><a href="#5-Remark" class="headerlink" title="5. Remark"></a>5. Remark</h1><ul>
+<li><p>The pthread_atfork() function shall declare fork handlers to be called before and after fork(), in the context of the thread that called fork(). The prepare fork handler shall be called before fork() processing commences. The parent fork handler shall be called after fork() processing completes in the parent process. The child fork handler shall be called after fork() processing completes in the child process. If no handling is desired at one or more of these three points, the corresponding fork handler address(es) may be set to NULL.</p>
+</li>
+<li><p>If a fork() call in a multi-threaded process leads to a child fork handler calling any function that is not async-signal-safe, the behavior is undefined.</p>
+</li>
+<li><p>The order of calls to pthread_atfork() is significant. The parent and child fork handlers shall be called in the order in which they were established by calls to pthread_atfork(). The prepare fork handlers shall be called in the opposite order.</p>
+</li>
+</ul>
+<h1 id="6-Example"><a href="#6-Example" class="headerlink" title="6. Example"></a>6. Example</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;pthread.h&gt;</span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line">#include &lt;syscall.h&gt;</span><br><span class="line">#include &lt;sys/types.h&gt;</span><br><span class="line">#include &lt;sys/wait.h&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void PrepareWhenFork()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%s %d \n&quot;, __FUNCTION__, __LINE__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void ParentWhenFork()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%s %d \n&quot;, __FUNCTION__, __LINE__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void ChildWhenFork()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%s %d \n&quot;, __FUNCTION__, __LINE__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void PrepareWhenFork1()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%s %d \n&quot;, __FUNCTION__, __LINE__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void ParentWhenFork1()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%s %d \n&quot;, __FUNCTION__, __LINE__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void ChildWhenFork1()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%s %d \n&quot;, __FUNCTION__, __LINE__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    if (pthread_atfork(PrepareWhenFork, ParentWhenFork, ChildWhenFork))</span><br><span class="line">        printf(&quot;%s %d \n&quot;, __FUNCTION__, __LINE__);</span><br><span class="line"></span><br><span class="line">    if (pthread_atfork(PrepareWhenFork1, ParentWhenFork1, ChildWhenFork1))</span><br><span class="line">        printf(&quot;%s %d \n&quot;, __FUNCTION__, __LINE__);</span><br><span class="line"></span><br><span class="line">    int i = fork();</span><br><span class="line">    if (i &lt; 0)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%s %d \n&quot;, __FUNCTION__, __LINE__);</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">    else if (0 == i)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%s %d \n&quot;, __FUNCTION__, __LINE__);</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%s %d \n&quot;, __FUNCTION__, __LINE__);</span><br><span class="line">        wait(NULL);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PrepareWhenFork1 26</span><br><span class="line">PrepareWhenFork 11</span><br><span class="line">ChildWhenFork 21</span><br><span class="line">ChildWhenFork1 36</span><br><span class="line">main 55</span><br><span class="line">ParentWhenFork 16</span><br><span class="line">ParentWhenFork1 31</span><br><span class="line">main 60</span><br><span class="line">Press &lt;RETURN&gt; to close this window...</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The invocation of PrepareWhenFork() is early than ParentWhenFork() and ChildWhenFork(), the order of other is unknown.</span><br></pre></td></tr></table></figure>
+<h1 id="7-Issue"><a href="#7-Issue" class="headerlink" title="7. Issue"></a>7. Issue</h1>
           
         
       
@@ -1412,7 +1689,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/pthread-mutex-init/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/posix-thread-guide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1432,7 +1709,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/04/05/pthread-mutex-init/" class="post-title-link" itemprop="url">pthread_mutex_init</a>
+                <a href="/2019/04/10/posix-thread-guide/" class="post-title-link" itemprop="url">posix thread guide</a>
               
             
           </h1>
@@ -1457,9 +1734,25 @@
                 
               
 
-              <time title="Erstellt: 2019-04-05 23:35:24" itemprop="dateCreated datePublished" datetime="2019-04-05T23:35:24+08:00">2019-04-05</time>
+              <time title="Erstellt: 2019-04-10 17:13:36" itemprop="dateCreated datePublished" datetime="2019-04-10T17:13:36+08:00">2019-04-10</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-04-11 17:58:22" itemprop="dateModified" datetime="2019-04-11T17:58:22+08:00">2019-04-11</time>
+              
             
           </span>
 
@@ -1475,7 +1768,35 @@
                 <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/unknown/" itemprop="url" rel="index"><span itemprop="name">unknown</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/it/" itemprop="url" rel="index"><span itemprop="name">it</span></a></span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/it/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/it/linux/api/" itemprop="url" rel="index"><span itemprop="name">api</span></a></span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/it/linux/api/posix/" itemprop="url" rel="index"><span itemprop="name">posix</span></a></span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/it/linux/api/posix/thread/" itemprop="url" rel="index"><span itemprop="name">thread</span></a></span>
 
                 
                 
@@ -1512,7 +1833,101 @@
       
         
           
-            
+            <h1 id="1-Concept"><a href="#1-Concept" class="headerlink" title="1. Concept"></a>1. Concept</h1><h2 id="Posix-Thread"><a href="#Posix-Thread" class="headerlink" title="Posix Thread"></a>Posix Thread</h2><p>POSIX.1 specifies a set of interfaces (functions, header files) for threaded programming commonly known as <strong>POSIX threads</strong>, or <strong>Pthreads</strong>. A single process can contain multiple threads, all of which are executing in the same program. These threads share the same global memory (data and heap segments), but each thread has its own stack (automatic(local) variables).</p>
+<h2 id="Posix-Thread-Id"><a href="#Posix-Thread-Id" class="headerlink" title="Posix Thread Id"></a>Posix Thread Id</h2><p>Each of the threads in a process has a unique thread identifier (stored in the type pthread_t). This identifier is returned to the caller of pthread_create(3), and a thread can obtain its own thread identifier using<br>pthread_self(3).</p>
+<p>Thread IDs are guaranteed to be unique only within a process. (In all pthreads functions that accept a thread ID as an argument, that ID by definition refers to a thread in the same process as the caller.)</p>
+<p>The system may reuse a thread ID after a terminated thread has been joined, or a detached thread has terminated. POSIX says: “If an application attempts to use a thread ID whose lifetime has ended, the behavior is undefined.”</p>
+<h2 id="System-Thread-Id"><a href="#System-Thread-Id" class="headerlink" title="System Thread Id"></a>System Thread Id</h2><p>Posix Thread Id is a non exposed struct, it is not friendly to read and print; and it shall reuse id after a terminated thread has been joined, or a detached thread has terminated, it is not friendly to identify thread.</p>
+<p>So, the better way is using the value that come from syscall(SYS_gettid) invocation, the value is used in system-wide. And the id value is looped to be allocation.</p>
+<h2 id="Cancellation-Point"><a href="#Cancellation-Point" class="headerlink" title="Cancellation Point"></a>Cancellation Point</h2><p>POSIX.1 specifies that certain functions must, and certain other functions may, be cancellation points. If a thread is cancelable, its cancelability type is deferred, and a cancellation request is pending for the thread, then the thread is canceled when it calls a function that is a cancellation point.</p>
+<p>An implementation may also mark other functions not specified in the standard as cancellation points. In particular, an implementation is likely to mark any nonstandard function that may block as a cancellation point. (This includes most functions that can touch files.)</p>
+<h2 id="Thread-safe-Functions"><a href="#Thread-safe-Functions" class="headerlink" title="Thread-safe Functions"></a>Thread-safe Functions</h2><p>A thread-safe function is one that can be safely (i.e., it will deliver the same results regardless of whether it is) called from multiple threads at the same time.</p>
+<h2 id="Async-cancel-safe-Functions"><a href="#Async-cancel-safe-Functions" class="headerlink" title="Async-cancel-safe Functions"></a>Async-cancel-safe Functions</h2><p>An async-cancel-safe function is one that can be safely called in an application where asynchronous cancelability is enabled (see pthread_setcancelstate(3)).</p>
+<h2 id="Linux-Implementations-of-POSIX-Threads"><a href="#Linux-Implementations-of-POSIX-Threads" class="headerlink" title="Linux Implementations of POSIX Threads"></a>Linux Implementations of POSIX Threads</h2><ul>
+<li><p>LinuxThreads:<br>This is the original Pthreads implementation. Since glibc 2.4, this implementation is no longer supported.</p>
+</li>
+<li><p>NPTL (Native POSIX Threads Library):<br>This is the modern Pthreads implementation. By comparison with LinuxThreads, NPTL provides closer conformance to the requirements of the POSIX.1 specification and better performance when creating large numbers of<br>threads. NPTL is available since glibc 2.3.2, and requires features that are present in the Linux 2.6 kernel.</p>
+</li>
+</ul>
+<p>Both of these are so-called 1:1 implementations, meaning that each thread maps to a kernel scheduling entity. Both threading implementations employ the Linux clone(2) system call. In NPTL, thread synchronization primitives<br>(mutexes, thread joining, and so on) are implemented using the Linux futex(2) system call.</p>
+<h2 id="LinuxThreads"><a href="#LinuxThreads" class="headerlink" title="LinuxThreads"></a>LinuxThreads</h2><p>The notable(note-able) features of this implementation are the following:</p>
+<ul>
+<li><p>In addition to the main (initial) thread, and the threads that the program creates using pthread_create(3), the implementation creates a “manager” thread. This thread handles thread creation and termination. (Problems can result if this thread is inadvertently killed.)</p>
+</li>
+<li><p>Signals are used internally by the implementation. On Linux 2.2 and later, the first three real-time signals are used (see also signal(7)). On older Linux kernels, SIGUSR1 and SIGUSR2 are used. Applications must avoid the use of whichever set of signals is employed by the implementation.</p>
+</li>
+<li><p>Threads do not share process IDs. (In effect, LinuxThreads threads are implemented as processes which share more information than usual, but which do not share a common process ID.) LinuxThreads threads (including the manager thread) are visible as separate processes using ps(1).</p>
+</li>
+</ul>
+<p>The LinuxThreads implementation deviates from the POSIX.1 specification in a number of ways, including the following:</p>
+<ul>
+<li><p>Calls to getpid(2) return a different value in each thread.</p>
+</li>
+<li><p>Calls to getppid(2) in threads other than the main thread return the process ID of the manager thread; instead getppid(2) in these threads should return the same value as getppid(2) in the main thread.</p>
+</li>
+<li><p>When one thread creates a new child process using fork(2), any thread should be able to wait(2) on the child. However, the implementation allows only the thread that created the child to wait(2) on it.</p>
+</li>
+<li><p>When a thread calls execve(2), all other threads are terminated (as required by POSIX.1). However, the resulting process has the same PID as the thread that called execve(2): it should have the same PID as the main thread.</p>
+</li>
+<li><p>Threads do not share user and group IDs. This can cause complications with set-user-ID programs and can cause failures in Pthreads functions if an application changes its credentials using seteuid(2) or similar.</p>
+</li>
+<li><p>Threads do not share a common session ID and process group ID.</p>
+</li>
+<li><p>Threads do not share record locks created using fcntl(2).</p>
+</li>
+<li><p>The information returned by times(2) and getrusage(2) is per-thread rather than process-wide.</p>
+</li>
+<li><p>Threads do not share semaphore undo values (see semop(2)).</p>
+</li>
+<li><p>Threads do not share interval timers.</p>
+</li>
+<li><p>Threads do not share a common nice value.</p>
+</li>
+<li><p>POSIX.1 distinguishes the notions of signals that are directed to the process as a whole and signals that are directed to individual threads. According to POSIX.1, a process-directed signal (sent using kill(2), for example) should be handled by a single, arbitrarily selected thread within the process. LinuxThreads does not support the notion of process-directed signals: signals may be sent only to specific threads.</p>
+</li>
+<li><p>Threads have distinct alternate signal stack settings. However, a new thread’s alternate signal stack settings are copied from the thread that created it, so that the threads initially share an alternate signal stack. (A new thread should start with no alternate signal stack defined. If two threads handle signals on their shared alternate signal stack at the same time, unpredictable program failures are likely to occur.)</p>
+</li>
+</ul>
+<h2 id="NPTL"><a href="#NPTL" class="headerlink" title="NPTL"></a>NPTL</h2><p>With NPTL, all of the threads in a process are placed in the same thread group; all members of a thread group share the same PID. NPTL does not employ a manager thread.</p>
+<p>NPTL makes internal use of the first two real-time signals; these signals cannot be used in applications. See nptl(7) for further details.</p>
+<p>NPTL still has at least one nonconformance with POSIX.1:</p>
+<ul>
+<li>Threads do not share a common nice value.</li>
+</ul>
+<p>Some NPTL nonconformances occur only with older kernels:</p>
+<ul>
+<li><p>The information returned by times(2) and getrusage(2) is per-thread rather than process-wide (fixed in kernel 2.6.9).</p>
+</li>
+<li><p>Threads do not share resource limits (fixed in kernel 2.6.10).</p>
+</li>
+<li><p>Threads do not share interval timers (fixed in kernel 2.6.12).</p>
+</li>
+<li><p>Only the main thread is permitted to start a new session using setsid(2) (fixed in kernel 2.6.16).</p>
+</li>
+<li><p>Only the main thread is permitted to make the process into a process group leader using setpgid(2) (fixed in kernel 2.6.16).</p>
+</li>
+<li><p>Threads have distinct alternate signal stack settings. However, a new thread’s alternate signal stack settings are copied from the thread that created it, so that the threads initially share an alternate signal stack (fixed in kernel 2.6.16).</p>
+</li>
+</ul>
+<p>Note the following further points about the NPTL implementation:</p>
+<ul>
+<li>If the stack size soft resource limit (see the description of RLIMIT_STACK in setrlimit(2)) is set to a value other than unlimited, then this value defines the default stack size for new threads.  To be effective, this limit must be set before the program is executed, perhaps using the ulimit -s shell built-in command (limit stacksize in the C shell).</li>
+</ul>
+<h2 id="Nice-Value"><a href="#Nice-Value" class="headerlink" title="Nice Value"></a>Nice Value</h2><p>程序的优先级范围为[0,139]，有效的实时优先级（RT priority）范围为[0,99]，SCHED_NORMAL和SCHED_BATCH这两个非实时任务的优先级为[100,139]。[100,139]这个区间的优先级又称为静态优先级(static priority)。之所以称为静态优先级是因为它不会随着时间而改变，内核不会修改它，只能通过系统调用nice去修改。静态优先级用进程描述符中的static_prio表示。优先级的值越低，表示具有更高的优先级，0的优先级最高。</p>
+<p>用户的nice值[-20,19]对应于静态优先级的[100,139]，也就是说，nice值越小，优先级越低。用户的nice值与优先级的转化关系为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define NICE_TO_PRIO(nice)      ((nice) + DEFAULT_PRIO)</span><br><span class="line">#define PRIO_TO_NICE(prio)      ((prio) - DEFAULT_PRIO)</span><br></pre></td></tr></table></figure></p>
+<p>其中DEFAULT_PRIO的值为120，对应的nice值为0.</p>
+<h2 id="Attributes-Object"><a href="#Attributes-Object" class="headerlink" title="Attributes Object"></a>Attributes Object</h2><ul>
+<li><p>Attributes objects are provided for threads, mutexes, and condition variables as a mechanism to support probable future standardization in these areas without requiring that the function itself be changed.</p>
+</li>
+<li><p>Attributes objects provide clean isolation of the configurable aspects of threads. For example, “stack size” is an important attribute of a thread, but it cannot be expressed portably. When porting a threaded program, stack sizes often need to be adjusted. The use of attributes objects can help by allowing the changes to be isolated in a single place, rather than being spread across every instance of thread creation.</p>
+</li>
+<li><p>The attributes objects are defined as opaque types as an aid to extensibility. If these objects had been specified as structures, adding new attributes would force recompilation of all multi-threaded programs when the attributes objects are extended; this might not be possible if different program components were supplied by different vendors.</p>
+</li>
+<li><p>Additionally, opaque attributes objects present opportunities for improving performance. Argument validity can be checked once when attributes are set, rather than each time a thread is created. Implementations often need to cache kernel objects that are expensive to create. Opaque attributes objects provide an efficient mechanism to detect when cached objects become invalid due to attribute changes.</p>
+</li>
+</ul>
+<h2 id="Real-time-System"><a href="#Real-time-System" class="headerlink" title="Real-time System"></a>Real-time System</h2><p>A real-time system has been described as one which “controls an environment by receiving data, processing them, and returning the results sufficiently quickly to affect the environment at that time”.</p>
+
           
         
       
@@ -1568,7 +1983,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/pthread-mutex-getprioceiling/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/posix-api-template/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1588,7 +2003,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/04/05/pthread-mutex-getprioceiling/" class="post-title-link" itemprop="url">pthread_mutex_getprioceiling</a>
+                <a href="/2019/04/10/posix-api-template/" class="post-title-link" itemprop="url">posix api template</a>
               
             
           </h1>
@@ -1613,9 +2028,25 @@
                 
               
 
-              <time title="Erstellt: 2019-04-05 23:35:17" itemprop="dateCreated datePublished" datetime="2019-04-05T23:35:17+08:00">2019-04-05</time>
+              <time title="Erstellt: 2019-04-10 15:10:36" itemprop="dateCreated datePublished" datetime="2019-04-10T15:10:36+08:00">2019-04-10</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-04-11 10:29:43" itemprop="dateModified" datetime="2019-04-11T10:29:43+08:00">2019-04-11</time>
+              
             
           </span>
 
@@ -1668,7 +2099,9 @@
       
         
           
-            
+            <h1 id="1-Brief"><a href="#1-Brief" class="headerlink" title="1. Brief"></a>1. Brief</h1><h1 id="2-Syntax"><a href="#2-Syntax" class="headerlink" title="2. Syntax"></a>2. Syntax</h1><pre><code>
+</code></pre><h1 id="3-Param"><a href="#3-Param" class="headerlink" title="3. Param"></a>3. Param</h1><h1 id="4-Return-Value"><a href="#4-Return-Value" class="headerlink" title="4. Return Value"></a>4. Return Value</h1><p>Upon successful, return zero; otherwise, an error number shall be returned to indicate the error.</p>
+<h1 id="5-Remark"><a href="#5-Remark" class="headerlink" title="5. Remark"></a>5. Remark</h1><h1 id="6-Example"><a href="#6-Example" class="headerlink" title="6. Example"></a>6. Example</h1><h1 id="7-Issue"><a href="#7-Issue" class="headerlink" title="7. Issue"></a>7. Issue</h1>
           
         
       
@@ -1724,7 +2157,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/pthread-mutex-destroy/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/how-to-delete-auto-number-of-theme/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -1744,7 +2177,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/04/05/pthread-mutex-destroy/" class="post-title-link" itemprop="url">pthread_mutex_destroy</a>
+                <a href="/2019/04/09/how-to-delete-auto-number-of-theme/" class="post-title-link" itemprop="url">how to delete auto number of theme</a>
               
             
           </h1>
@@ -1769,9 +2202,13 @@
                 
               
 
-              <time title="Erstellt: 2019-04-05 23:35:10" itemprop="dateCreated datePublished" datetime="2019-04-05T23:35:10+08:00">2019-04-05</time>
+              <time title="Erstellt: 2019-04-09 10:58:52 / Geändert am: 11:06:40" itemprop="dateCreated datePublished" datetime="2019-04-09T10:58:52+08:00">2019-04-09</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -1787,7 +2224,7 @@
                 <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/unknown/" itemprop="url" rel="index"><span itemprop="name">unknown</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
 
                 
                 
@@ -1824,7 +2261,12 @@
       
         
           
-            
+            <ol>
+<li>vim theme/&lt;theme_name&gt;/_config.yml</li>
+<li>search toc:</li>
+<li>set <em>number</em> to fasle.</li>
+</ol>
+
           
         
       
@@ -1869,7 +2311,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Vorherige Seite"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Vorherige Seite"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
   </nav>
 
 
@@ -1911,7 +2353,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
@@ -1930,7 +2372,25 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
@@ -1949,7 +2409,25 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">schlagwörter</span>
                   </a>
                 </div>

@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1. ConceptPosix ThreadPOSIX.1 specifies a set of interfaces (functions, header files) for threaded programming commonly known as POSIX threads, or Pthreads. A single process can contain multiple threa">
+<meta name="keywords" content="it,linux,api,posix,thread">
+<meta property="og:type" content="article">
+<meta property="og:title" content="posix thread guide">
+<meta property="og:url" content="http://yoursite.com/2019/04/10/posix-thread-guide/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. ConceptPosix ThreadPOSIX.1 specifies a set of interfaces (functions, header files) for threaded programming commonly known as POSIX threads, or Pthreads. A single process can contain multiple threa">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-11T09:58:22.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="posix thread guide">
+<meta name="twitter:description" content="1. ConceptPosix ThreadPOSIX.1 specifies a set of interfaces (functions, header files) for threaded programming commonly known as POSIX threads, or Pthreads. A single process can contain multiple threa">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/04/10/posix-thread-guide/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>posix thread guide | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Navigationsleiste an/ausschalten">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Schlagwörter</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Kategorien</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/posix-thread-guide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">posix thread guide
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-04-10 17:13:36" itemprop="dateCreated datePublished" datetime="2019-04-10T17:13:36+08:00">2019-04-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-04-11 17:58:22" itemprop="dateModified" datetime="2019-04-11T17:58:22+08:00">2019-04-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/it/" itemprop="url" rel="index"><span itemprop="name">it</span></a></span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/it/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/it/linux/api/" itemprop="url" rel="index"><span itemprop="name">api</span></a></span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/it/linux/api/posix/" itemprop="url" rel="index"><span itemprop="name">posix</span></a></span>
+
+                
+                
+                  . 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/it/linux/api/posix/thread/" itemprop="url" rel="index"><span itemprop="name">thread</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-Concept"><a href="#1-Concept" class="headerlink" title="1. Concept"></a>1. Concept</h1><h2 id="Posix-Thread"><a href="#Posix-Thread" class="headerlink" title="Posix Thread"></a>Posix Thread</h2><p>POSIX.1 specifies a set of interfaces (functions, header files) for threaded programming commonly known as <strong>POSIX threads</strong>, or <strong>Pthreads</strong>. A single process can contain multiple threads, all of which are executing in the same program. These threads share the same global memory (data and heap segments), but each thread has its own stack (automatic(local) variables).</p>
+<h2 id="Posix-Thread-Id"><a href="#Posix-Thread-Id" class="headerlink" title="Posix Thread Id"></a>Posix Thread Id</h2><p>Each of the threads in a process has a unique thread identifier (stored in the type pthread_t). This identifier is returned to the caller of pthread_create(3), and a thread can obtain its own thread identifier using<br>pthread_self(3).</p>
+<p>Thread IDs are guaranteed to be unique only within a process. (In all pthreads functions that accept a thread ID as an argument, that ID by definition refers to a thread in the same process as the caller.)</p>
+<p>The system may reuse a thread ID after a terminated thread has been joined, or a detached thread has terminated. POSIX says: “If an application attempts to use a thread ID whose lifetime has ended, the behavior is undefined.”</p>
+<h2 id="System-Thread-Id"><a href="#System-Thread-Id" class="headerlink" title="System Thread Id"></a>System Thread Id</h2><p>Posix Thread Id is a non exposed struct, it is not friendly to read and print; and it shall reuse id after a terminated thread has been joined, or a detached thread has terminated, it is not friendly to identify thread.</p>
+<p>So, the better way is using the value that come from syscall(SYS_gettid) invocation, the value is used in system-wide. And the id value is looped to be allocation.</p>
+<h2 id="Cancellation-Point"><a href="#Cancellation-Point" class="headerlink" title="Cancellation Point"></a>Cancellation Point</h2><p>POSIX.1 specifies that certain functions must, and certain other functions may, be cancellation points. If a thread is cancelable, its cancelability type is deferred, and a cancellation request is pending for the thread, then the thread is canceled when it calls a function that is a cancellation point.</p>
+<p>An implementation may also mark other functions not specified in the standard as cancellation points. In particular, an implementation is likely to mark any nonstandard function that may block as a cancellation point. (This includes most functions that can touch files.)</p>
+<h2 id="Thread-safe-Functions"><a href="#Thread-safe-Functions" class="headerlink" title="Thread-safe Functions"></a>Thread-safe Functions</h2><p>A thread-safe function is one that can be safely (i.e., it will deliver the same results regardless of whether it is) called from multiple threads at the same time.</p>
+<h2 id="Async-cancel-safe-Functions"><a href="#Async-cancel-safe-Functions" class="headerlink" title="Async-cancel-safe Functions"></a>Async-cancel-safe Functions</h2><p>An async-cancel-safe function is one that can be safely called in an application where asynchronous cancelability is enabled (see pthread_setcancelstate(3)).</p>
+<h2 id="Linux-Implementations-of-POSIX-Threads"><a href="#Linux-Implementations-of-POSIX-Threads" class="headerlink" title="Linux Implementations of POSIX Threads"></a>Linux Implementations of POSIX Threads</h2><ul>
+<li><p>LinuxThreads:<br>This is the original Pthreads implementation. Since glibc 2.4, this implementation is no longer supported.</p>
+</li>
+<li><p>NPTL (Native POSIX Threads Library):<br>This is the modern Pthreads implementation. By comparison with LinuxThreads, NPTL provides closer conformance to the requirements of the POSIX.1 specification and better performance when creating large numbers of<br>threads. NPTL is available since glibc 2.3.2, and requires features that are present in the Linux 2.6 kernel.</p>
+</li>
+</ul>
+<p>Both of these are so-called 1:1 implementations, meaning that each thread maps to a kernel scheduling entity. Both threading implementations employ the Linux clone(2) system call. In NPTL, thread synchronization primitives<br>(mutexes, thread joining, and so on) are implemented using the Linux futex(2) system call.</p>
+<h2 id="LinuxThreads"><a href="#LinuxThreads" class="headerlink" title="LinuxThreads"></a>LinuxThreads</h2><p>The notable(note-able) features of this implementation are the following:</p>
+<ul>
+<li><p>In addition to the main (initial) thread, and the threads that the program creates using pthread_create(3), the implementation creates a “manager” thread. This thread handles thread creation and termination. (Problems can result if this thread is inadvertently killed.)</p>
+</li>
+<li><p>Signals are used internally by the implementation. On Linux 2.2 and later, the first three real-time signals are used (see also signal(7)). On older Linux kernels, SIGUSR1 and SIGUSR2 are used. Applications must avoid the use of whichever set of signals is employed by the implementation.</p>
+</li>
+<li><p>Threads do not share process IDs. (In effect, LinuxThreads threads are implemented as processes which share more information than usual, but which do not share a common process ID.) LinuxThreads threads (including the manager thread) are visible as separate processes using ps(1).</p>
+</li>
+</ul>
+<p>The LinuxThreads implementation deviates from the POSIX.1 specification in a number of ways, including the following:</p>
+<ul>
+<li><p>Calls to getpid(2) return a different value in each thread.</p>
+</li>
+<li><p>Calls to getppid(2) in threads other than the main thread return the process ID of the manager thread; instead getppid(2) in these threads should return the same value as getppid(2) in the main thread.</p>
+</li>
+<li><p>When one thread creates a new child process using fork(2), any thread should be able to wait(2) on the child. However, the implementation allows only the thread that created the child to wait(2) on it.</p>
+</li>
+<li><p>When a thread calls execve(2), all other threads are terminated (as required by POSIX.1). However, the resulting process has the same PID as the thread that called execve(2): it should have the same PID as the main thread.</p>
+</li>
+<li><p>Threads do not share user and group IDs. This can cause complications with set-user-ID programs and can cause failures in Pthreads functions if an application changes its credentials using seteuid(2) or similar.</p>
+</li>
+<li><p>Threads do not share a common session ID and process group ID.</p>
+</li>
+<li><p>Threads do not share record locks created using fcntl(2).</p>
+</li>
+<li><p>The information returned by times(2) and getrusage(2) is per-thread rather than process-wide.</p>
+</li>
+<li><p>Threads do not share semaphore undo values (see semop(2)).</p>
+</li>
+<li><p>Threads do not share interval timers.</p>
+</li>
+<li><p>Threads do not share a common nice value.</p>
+</li>
+<li><p>POSIX.1 distinguishes the notions of signals that are directed to the process as a whole and signals that are directed to individual threads. According to POSIX.1, a process-directed signal (sent using kill(2), for example) should be handled by a single, arbitrarily selected thread within the process. LinuxThreads does not support the notion of process-directed signals: signals may be sent only to specific threads.</p>
+</li>
+<li><p>Threads have distinct alternate signal stack settings. However, a new thread’s alternate signal stack settings are copied from the thread that created it, so that the threads initially share an alternate signal stack. (A new thread should start with no alternate signal stack defined. If two threads handle signals on their shared alternate signal stack at the same time, unpredictable program failures are likely to occur.)</p>
+</li>
+</ul>
+<h2 id="NPTL"><a href="#NPTL" class="headerlink" title="NPTL"></a>NPTL</h2><p>With NPTL, all of the threads in a process are placed in the same thread group; all members of a thread group share the same PID. NPTL does not employ a manager thread.</p>
+<p>NPTL makes internal use of the first two real-time signals; these signals cannot be used in applications. See nptl(7) for further details.</p>
+<p>NPTL still has at least one nonconformance with POSIX.1:</p>
+<ul>
+<li>Threads do not share a common nice value.</li>
+</ul>
+<p>Some NPTL nonconformances occur only with older kernels:</p>
+<ul>
+<li><p>The information returned by times(2) and getrusage(2) is per-thread rather than process-wide (fixed in kernel 2.6.9).</p>
+</li>
+<li><p>Threads do not share resource limits (fixed in kernel 2.6.10).</p>
+</li>
+<li><p>Threads do not share interval timers (fixed in kernel 2.6.12).</p>
+</li>
+<li><p>Only the main thread is permitted to start a new session using setsid(2) (fixed in kernel 2.6.16).</p>
+</li>
+<li><p>Only the main thread is permitted to make the process into a process group leader using setpgid(2) (fixed in kernel 2.6.16).</p>
+</li>
+<li><p>Threads have distinct alternate signal stack settings. However, a new thread’s alternate signal stack settings are copied from the thread that created it, so that the threads initially share an alternate signal stack (fixed in kernel 2.6.16).</p>
+</li>
+</ul>
+<p>Note the following further points about the NPTL implementation:</p>
+<ul>
+<li>If the stack size soft resource limit (see the description of RLIMIT_STACK in setrlimit(2)) is set to a value other than unlimited, then this value defines the default stack size for new threads.  To be effective, this limit must be set before the program is executed, perhaps using the ulimit -s shell built-in command (limit stacksize in the C shell).</li>
+</ul>
+<h2 id="Nice-Value"><a href="#Nice-Value" class="headerlink" title="Nice Value"></a>Nice Value</h2><p>程序的优先级范围为[0,139]，有效的实时优先级（RT priority）范围为[0,99]，SCHED_NORMAL和SCHED_BATCH这两个非实时任务的优先级为[100,139]。[100,139]这个区间的优先级又称为静态优先级(static priority)。之所以称为静态优先级是因为它不会随着时间而改变，内核不会修改它，只能通过系统调用nice去修改。静态优先级用进程描述符中的static_prio表示。优先级的值越低，表示具有更高的优先级，0的优先级最高。</p>
+<p>用户的nice值[-20,19]对应于静态优先级的[100,139]，也就是说，nice值越小，优先级越低。用户的nice值与优先级的转化关系为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define NICE_TO_PRIO(nice)      ((nice) + DEFAULT_PRIO)</span><br><span class="line">#define PRIO_TO_NICE(prio)      ((prio) - DEFAULT_PRIO)</span><br></pre></td></tr></table></figure></p>
+<p>其中DEFAULT_PRIO的值为120，对应的nice值为0.</p>
+<h2 id="Attributes-Object"><a href="#Attributes-Object" class="headerlink" title="Attributes Object"></a>Attributes Object</h2><ul>
+<li><p>Attributes objects are provided for threads, mutexes, and condition variables as a mechanism to support probable future standardization in these areas without requiring that the function itself be changed.</p>
+</li>
+<li><p>Attributes objects provide clean isolation of the configurable aspects of threads. For example, “stack size” is an important attribute of a thread, but it cannot be expressed portably. When porting a threaded program, stack sizes often need to be adjusted. The use of attributes objects can help by allowing the changes to be isolated in a single place, rather than being spread across every instance of thread creation.</p>
+</li>
+<li><p>The attributes objects are defined as opaque types as an aid to extensibility. If these objects had been specified as structures, adding new attributes would force recompilation of all multi-threaded programs when the attributes objects are extended; this might not be possible if different program components were supplied by different vendors.</p>
+</li>
+<li><p>Additionally, opaque attributes objects present opportunities for improving performance. Argument validity can be checked once when attributes are set, rather than each time a thread is created. Implementations often need to cache kernel objects that are expensive to create. Opaque attributes objects provide an efficient mechanism to detect when cached objects become invalid due to attribute changes.</p>
+</li>
+</ul>
+<h2 id="Real-time-System"><a href="#Real-time-System" class="headerlink" title="Real-time System"></a>Real-time System</h2><p>A real-time system has been described as one which “controls an environment by receiving data, processing them, and returning the results sufficiently quickly to affect the environment at that time”.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/it/" rel="tag"># it</a>
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/api/" rel="tag"># api</a>
+          
+            <a href="/tags/posix/" rel="tag"># posix</a>
+          
+            <a href="/tags/thread/" rel="tag"># thread</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/10/posix-api-template/" rel="next" title="posix api template">
+                <i class="fa fa-chevron-left"></i> posix api template
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/11/pthread-atfork/" rel="prev" title="pthread_atfork">
+                pthread_atfork <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">schlagwörter</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Concept"><span class="nav-text">1. Concept</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Posix-Thread"><span class="nav-text">Posix Thread</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Posix-Thread-Id"><span class="nav-text">Posix Thread Id</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-Thread-Id"><span class="nav-text">System Thread Id</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cancellation-Point"><span class="nav-text">Cancellation Point</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thread-safe-Functions"><span class="nav-text">Thread-safe Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Async-cancel-safe-Functions"><span class="nav-text">Async-cancel-safe Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-Implementations-of-POSIX-Threads"><span class="nav-text">Linux Implementations of POSIX Threads</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LinuxThreads"><span class="nav-text">LinuxThreads</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPTL"><span class="nav-text">NPTL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nice-Value"><span class="nav-text">Nice Value</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Attributes-Object"><span class="nav-text">Attributes Object</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Real-time-System"><span class="nav-text">Real-time System</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

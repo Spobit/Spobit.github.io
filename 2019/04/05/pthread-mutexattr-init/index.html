@@ -96,15 +96,18 @@
 
 
 
-  <meta name="keywords" content="unknown">
+  <meta name="description" content="1. BriefInitialize a pthread_mutexattr_t object. 2. Syntax1#include &amp;lt;pthread.h&amp;gt; 1int pthread_mutexattr_init(pthread_mutexattr_t *attr); 3. Param3.1 attrA pointer that point to a object of pthrea">
+<meta name="keywords" content="unknown">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pthread_mutexattr_init">
 <meta property="og:url" content="http://yoursite.com/2019/04/05/pthread-mutexattr-init/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. BriefInitialize a pthread_mutexattr_t object. 2. Syntax1#include &amp;lt;pthread.h&amp;gt; 1int pthread_mutexattr_init(pthread_mutexattr_t *attr); 3. Param3.1 attrA pointer that point to a object of pthrea">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-05T15:36:45.935Z">
+<meta property="og:updated_time" content="2019-04-09T11:43:21.818Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pthread_mutexattr_init">
+<meta name="twitter:description" content="1. BriefInitialize a pthread_mutexattr_t object. 2. Syntax1#include &amp;lt;pthread.h&amp;gt; 1int pthread_mutexattr_init(pthread_mutexattr_t *attr); 3. Param3.1 attrA pointer that point to a object of pthrea">
 
 
 
@@ -368,6 +371,22 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-04-09 19:43:21" itemprop="dateModified" datetime="2019-04-09T19:43:21+08:00">2019-04-09</time>
+              
+            
           </span>
 
           
@@ -417,7 +436,16 @@
       
 
       
-        
+        <h1 id="1-Brief"><a href="#1-Brief" class="headerlink" title="1. Brief"></a>1. Brief</h1><p>Initialize a <em>pthread_mutexattr_t</em> object.</p>
+<h1 id="2-Syntax"><a href="#2-Syntax" class="headerlink" title="2. Syntax"></a>2. Syntax</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;pthread.h&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int pthread_mutexattr_init(pthread_mutexattr_t *attr);</span><br></pre></td></tr></table></figure>
+<h1 id="3-Param"><a href="#3-Param" class="headerlink" title="3. Param"></a>3. Param</h1><h2 id="3-1-attr"><a href="#3-1-attr" class="headerlink" title="3.1 attr"></a>3.1 attr</h2><p>A pointer that point to a object of <em>pthread_mutexattr_t</em> stuct; The object is a space that store mutex attributions.</p>
+<p>The function shall initialize <em>attr</em> with the default value for all of the attributes defined by the implementation.</p>
+<h1 id="4-Return-Value"><a href="#4-Return-Value" class="headerlink" title="4. Return Value"></a>4. Return Value</h1><p>Upon successful, return zero; otherwise, an error number shall be returned to indicate the error.</p>
+<h1 id="5-Remark"><a href="#5-Remark" class="headerlink" title="5. Remark"></a>5. Remark</h1><p>Results are undefined if pthread_mutexattr_init() is called specifying an already initialized attr attributes object.</p>
+<p>A destroyed attr attributes object can be reinitialized using pthread_mutexattr_init(); the results of otherwise referencing the object after it has been destroyed are undefined.</p>
+<p>After a mutex attributes object has been used to initialize one or more mutexes, any function affecting the attributes object (including destruction) shall not affect any previously initialized mutexes.</p>
+<h1 id="6-Issue"><a href="#6-Issue" class="headerlink" title="6. Issue"></a>6. Issue</h1>
       
     </div>
 
@@ -509,8 +537,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -525,7 +562,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
@@ -544,7 +581,25 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
@@ -563,7 +618,25 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">schlagwörter</span>
                   </a>
                 </div>
@@ -590,6 +663,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Brief"><span class="nav-text">1. Brief</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Syntax"><span class="nav-text">2. Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Param"><span class="nav-text">3. Param</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-attr"><span class="nav-text">3.1 attr</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Return-Value"><span class="nav-text">4. Return Value</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-Remark"><span class="nav-text">5. Remark</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-Issue"><span class="nav-text">6. Issue</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
