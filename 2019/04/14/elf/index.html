@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="定义 作用 位置 尺寸 数量 解释 注意  [TOC]  In A NutshellELF, Executable and Linking Format,是一种存储格式.它详细的指出数据在文件中,在内存是如何存放与使用.最终使之被使用或被执行. DetailsVerboseCategorize relocatable object:holds sections containing code an">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-17T02:11:57.863Z">
+<meta property="og:updated_time" content="2019-04-17T10:58:16.469Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="elf">
 <meta name="twitter:description" content="定义 作用 位置 尺寸 数量 解释 注意  [TOC]  In A NutshellELF, Executable and Linking Format,是一种存储格式.它详细的指出数据在文件中,在内存是如何存放与使用.最终使之被使用或被执行. DetailsVerboseCategorize relocatable object:holds sections containing code an">
@@ -384,7 +384,7 @@
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2019-04-17 10:11:57" itemprop="dateModified" datetime="2019-04-17T10:11:57+08:00">2019-04-17</time>
+                <time title="Geändert am: 2019-04-17 18:58:16" itemprop="dateModified" datetime="2019-04-17T18:58:16+08:00">2019-04-17</time>
               
             
           </span>
@@ -735,8 +735,8 @@
 <p>目前规定最多只能有一个.</p>
 <p><code>解释</code></p>
 <p>由Elf64_Sym结构组成的数组.元素尺寸由Elf64_Shdr::e_shentsize指出.元素个数由为Elf64_Shdr::sh_size / Elf64_Shdr::sh_entsize.</p>
-<p>Symbol Table索引0的的数据是固定的,st_shndx为SHN_UNDEF,其它全为0.代表一个未定义的符号索引.</p>
-<p>Symbol Table元素的成员Elf64_Sym::st_name是索引值,给出符号名(字符串)在String Table of String Table Section中的位置,String Table Section开始到符号名的偏移;Elf64_Shdr::sh_link是一个索引值,指出这个Table of String Table Section Header的索引,在Section Header Table中的下标.这样就可以找到符号名了.</p>
+<p>Symbol Table索引0的符号Elf64_Sym的数据是固定的,st_shndx为SHN_UNDEF,其它全为0.代表一个未定义的符号索引.</p>
+<p>Symbol Table元素的成员Elf64_Sym::st_name是索引值,String Table开始到符号名的偏移,给出符号名(字符串)在String Table of String Table Section中的位置;Elf64_Shdr::sh_link是一个索引值,在Section Header Table中的下标,间接给出了String Table.这样就可以找到符号名了.</p>
 <p><code>注意</code></p>
 <hr>
 <p>当 <em>Elf64_Shdr</em>::<em>sh_type</em> 是 SHT_SYMTAB | SHT_DYNSYM 时,这个节头指向的节为符号表节.</p>
@@ -746,6 +746,7 @@
 </blockquote>
 <h3 id="Relocation-Section"><a href="#Relocation-Section" class="headerlink" title="Relocation Section"></a><code>Relocation Section</code></h3><p><code>定义</code></p>
 <p>当Elf64_Shdr::sh_type是SHT_REL|SHT_RELA时,这个节头指向的节为Relocation Section.</p>
+<p>Relocation is the process of connecting symbolic references with symbolic definitions.</p>
 <p><code>作用</code></p>
 <p>保存重定位信息.</p>
 <p><code>位置 尺寸 数量</code></p>
@@ -756,7 +757,7 @@
 <p>由Elf64_Rel/Elf64_Rela结构组成的数组.元素尺寸由Elf64_Shdr::e_shentsize指出.元素个数由为Elf64_Shdr::sh_size / Elf64_Shdr::sh_entsize.</p>
 <p>Elf64_Rel/Elf64_Rela指出引用的符号(Elf64_Sym),且能计算出要重定位的位置,并告知如何修复重定位.</p>
 <ul>
-<li><p>引用的符号(Elf64_Sym)<br>  Relocation Table元素的成员Elf64_Rel/Elf64_Rela::r_info,可以计算出ELF64_R_SYM,是索引值,Symbol Table下标;Elf64_Shdr::sh_link是一个索引值,在Section Header Table中的下标,间接给出了Relocation Table.这样就可以找到符号(Elf64_Sym)了.</p>
+<li><p>引用的符号(Elf64_Sym)<br>  Relocation Table元素的成员Elf64_Rel/Elf64_Rela::r_info,可以计算出ELF64_R_SYM,是索引值,在Symbol Table中的下标;Elf64_Shdr::sh_link是一个索引值,在Section Header Table中的下标,间接给出了Relocation Table.这样就可以找到符号(Elf64_Sym)了.</p>
 </li>
 <li><p>要重定位的位置</p>
 </li>
@@ -988,9 +989,9 @@
 <p>一个节头表索引链接,其解释依赖于<em>sh_type</em>.</p>
 <p><code>sh_info</code></p>
 <blockquote>
-<p>Extra information, interpretation depends on the section type. Details See <a href="#tc5-section-info-elf64_shdrsh_info"> Tables Collection tc.5</a>.</p>
+<p>Extra information, interpretation depends on the section type.  If the sh_flags field for this section header includes the attribute SHF_INFO_LINK, then this member represents a section header table index. Details See <a href="#tc5-section-info-elf64_shdrsh_info"> Tables Collection tc.5</a>.</p>
 </blockquote>
-<p>额外信息,其解释依赖于<em>sh_type</em>.如果<em>sh_flags</em>包含SHF_INFO_LINK,其代表一个节头表索引.</p>
+<p>额外信息,其解释依赖于<em>sh_type</em>.如果<em>sh_flags</em>包含SHF_INFO_LINK,其代表一个节头表索引.如,当重定位条目Elf64_Rela::r_offset给出偏移时,会用这个成员指出修复地址在哪个节中,这样就可以定位到修复地址了.</p>
 <p><code>sh_addralign</code></p>
 <blockquote>
 <p>Some sections have address alignment constraints. For example, if a section holds a double-word, the system must ensure double-word alignment for the entire section. In this case, the value of sh_addr must be congruent to 0, modulo the value of sh_addralign. Currently, only 0 and positive integral powers of two are allowed. Values 0 and 1 mean the section has no alignment constraints.</p>
@@ -1048,7 +1049,11 @@
 <h2 id="Elf64-Rel"><a href="#Elf64-Rel" class="headerlink" title="Elf64_Rel"></a><code>Elf64_Rel</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">typedef struct &#123;</span><br><span class="line">  Elf32_Addr      r_offset;</span><br><span class="line">  Elf32_Word      r_info;</span><br><span class="line">&#125; Elf32_Rel;</span><br><span class="line"></span><br><span class="line">typedef struct &#123;</span><br><span class="line">  Elf64_Addr      r_offset;</span><br><span class="line">  Elf64_Xword     r_info;</span><br><span class="line">&#125; Elf64_Rel;</span><br></pre></td></tr></table></figure>
 <p>Details to see <em>Elf64_Rela</em>.</p>
 <h2 id="Elf64-Rela"><a href="#Elf64-Rela" class="headerlink" title="Elf64_Rela"></a><code>Elf64_Rela</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">typedef struct &#123;</span><br><span class="line">  Elf32_Addr      r_offset;</span><br><span class="line">  Elf32_Word      r_info;</span><br><span class="line">  Elf32_Sword     r_addend;</span><br><span class="line">&#125; Elf32_Rela;</span><br><span class="line"></span><br><span class="line">typedef struct &#123;</span><br><span class="line">  Elf64_Addr      r_offset;</span><br><span class="line">  Elf64_Xword     r_info;</span><br><span class="line">  Elf64_Sxword    r_addend;</span><br><span class="line">&#125; Elf64_Rela;</span><br></pre></td></tr></table></figure>
+<p>Rela entries contain an explicit addend. Entries of type Rel store an implicit addend in the location to be modified. 32–bit SPARC use only Elf32_Rela relocation enteries. 64–bit SPARC and 64–bit x86 use only Elf64_Rela relocation entries. Thus, the r_addend member serves as the relocation addend. x86 uses only Elf32_Rel relocation entries. The field to be relocated holds the addend. In all cases, the addend and the computed result use the same byte order.</p>
+<p>A relocation section can reference two other sections: a symbol table, identified by the sh_link section header entry, and a section to modify, identified by the sh_info section header entry. Sections specifies these relationships. A sh_info entry is required when a relocation section exists in a relocatable object, but is optional for executables and shared objects. The relocation offset is sufficient to perform the relocation.</p>
 <p><code>r_offset</code></p>
+<p>一个值,虚拟地址或偏移.对于一个重定位文件,这个值表示节偏移(哪个节);对于可执行的或共享的对象,值是受重定位影响的储存单元的虚拟地址,运行时链接器使用虚拟地址是更有利的.对于这个值的使用,是由重定位类型ELF64_R_TYPE说明的.</p>
+<p>如果是偏移,怎么找这个节?<br>Elf64_Shdr::sh_info给出了答案,它指定了重定位地址所在的节的节头,在节头表中的索引.这样就能定位到一个绝对的地址了.</p>
 <p>This member gives the location at which to apply the relocation action. Different object files have slightly different interpretations for this member.</p>
 <p>这个成员给出了应用重定位动作的位置.不同的对象文件有轻微的不同解释.</p>
 <p>For a relocatable file, the value indicates a section offset. The relocation section describes how to modify another section in the file. Relocation offsets designate a storage unit within the second section.</p>
@@ -1056,18 +1061,29 @@
 <p>For an executable or shared object, the value indicates the virtual address of the storage unit affected by the relocation. This information makes the relocation entries more useful for the runtime linker.</p>
 <p>对于一个可执行的或共享的对象,这个值指出受重定位影响的储存单元的虚拟地址.此信息使重定位条目对于运行时链接器更有用.</p>
 <p>Although the interpretation of the member changes for different object files to allow efficient access by the relevant programs, the meanings of the relocation types stay the same.</p>
-<p>尽管,对于不同的对象文件,成员的解释有变动,以允许相关程序有效地访问,但重新定位类型的含义保持不变.</p>
+<p>尽管,对于不同的对象文件,成员的解释有变动,以允许相关程序有效地访问,但重新定位类型的含义保持相同.</p>
 <p>In all cases, the r_offset value designates the offset or virtual address of the first byte of the affected storage unit. The relocation type specifies which bits to change and how to calculate their values.</p>
 <p>所有情况下,这个成员指明虚拟地址的偏移,受影响的储存单元的的第一个字节.重定位类型指出哪些字节改变,和怎样计算它们的值.</p>
 <p><code>r_info</code></p>
+<p>这个成员给出了二类信息:</p>
+<ul>
+<li><p>重定位类型ELF64_R_TYPE</p>
+<p>  指出如何计算要修复的位置.详细见ELF64_R_TYPE.</p>
+</li>
+<li><p>Symbol Table索引ELF64_R_SYM.</p>
+<p>  指出符号在符号表中的索引.</p>
+<p>  那么是哪个符号表呢?<br>  Elf64_Shdr::sh_link给出了答案,它指定了符号表所在的节的节头,在节头表中的索引.这样就能从Elf64_Rela定位到Elf64_Sym了.</p>
+<p>  如果索引是STN_UNDEF,表示未定义的符号索引,修复时,把Elf64_Rela::r_offset当0使用.</p>
+</li>
+</ul>
 <p>This member gives both the symbol table index, with respect to which the relocation must be made, and the type of relocation to apply. For example, a call instruction’s relocation entry holds the symbol table index of the function being called. If the index is STN_UNDEF, the undefined symbol index, the relocation uses zero as the symbol value.</p>
 <p>这个成员给出了必需被重定位的符号表索引 <em>ELF64_R_SYM</em> 和应用的重定位类型 <em>ELF64_R_TYPE</em>.例如,一个调用指令重定位条目持有将被调用的函数的符号表索引.如果索引是STN_UNDEF,未定义的符号索引,这个重定位使用0作为符号值.</p>
 <p>Relocation types are processor-specific. A relocation entry’s relocation type or symbol table index is the result of applying <em>ELF64_R_TYPE</em> or <em>ELF64_R_SYM</em>, respectively, to the entry’s r_info member.</p>
 <p>重定位类型是处理器指定的,重定位条目的类型或索引是应用于 ELF64_R_TYPE 或 ELF64_R_SYM 到该成员的结果,各自地.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#define ELF64_R_SYM(info)             ((info)&gt;&gt;8)</span><br><span class="line">#define ELF64_R_TYPE(info)            ((unsigned char)(info))</span><br><span class="line">#define ELF32_R_INFO(sym, type)       (((sym)&lt;&lt;8)+(unsigned char)(type))</span><br><span class="line"></span><br><span class="line">#define ELF64_R_SYM(info)             ((info)&gt;&gt;32)</span><br><span class="line">#define ELF64_R_TYPE(info)            ((Elf64_Word)(info))</span><br><span class="line">#define ELF64_R_INFO(sym, type)       (((Elf64_Xword)(sym)&lt;&lt;32)+ \</span><br><span class="line">                                        (Elf64_Xword)(type))</span><br></pre></td></tr></table></figure>
-<p>For 64–bit SPARC Elf64_Rela structures, the r_info field is further broken down into an 8–bit type identifier and a &gt; 24–bit type dependent data field. For the existing relocation types, the data field is zero. New relocation types, however, might make use of the data bits.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#define ELF64_R_TYPE_DATA(info)       (((Elf64_Xword)(info)&lt;&lt;32)&gt;&gt;40)</span><br><span class="line">#define ELF64_R_TYPE_ID(info)         (((Elf64_Xword)(info)&lt;&lt;56)&gt;&gt;56)</span><br><span class="line">#define ELF64_R_TYPE_INFO(data, type) (((Elf64_Xword)(data)&lt;&lt;8)+ \</span><br><span class="line">                                        (Elf64_Xword)(type))</span><br></pre></td></tr></table></figure>
 <p><code>r_addend</code></p>
+<p>这个成员提供了一个常量加数r_addend,被用途计算重定位地址填充值.</p>
+<p>Elf64_Rela类型有显示的常量加数Elf64_Rela::r_addend;Elf64_Rel类型有隐式的常量加数,要重定位的地址的内容就是了.</p>
 <p>This member specifies a constant addend used to compute the value to be stored into the relocatable field.</p>
 <h1 id="Table-Collection"><a href="#Table-Collection" class="headerlink" title="Table Collection"></a><code>Table Collection</code></h1><h2 id="ELF-Identification-Index"><a href="#ELF-Identification-Index" class="headerlink" title="ELF Identification Index"></a><code>ELF Identification Index</code></h2><table>
 <thead>
