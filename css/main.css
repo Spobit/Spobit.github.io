@@ -1765,7 +1765,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff587c;
+  background: #ffff95;
 }
 .feed-link,
 .chat {
@@ -2875,6 +2875,18 @@ pre > code {
   line-height: 19.2px !important;
   color: #000 !important;
 }
+code {
+  margin: 20px 0px !important;
+  border: 0px solid #f00 !important;
+  padding: 1.6px 4px !important;
+  font-family: "Fixedsys Excelsior 3.01" !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  line-height: 19.2px !important;
+  color: #000 !important;
+  background: rgba(0,0,255,0.267) !important;
+}
 li {
   font-family: "Fixedsys Excelsior 3.01" !important;
   font-size: 16px !important;
@@ -2909,8 +2921,12 @@ td {
   font-weight: normal !important;
   color: #000 !important;
 }
+blockquote {
+  background: #eee !important;
+}
 blockquote > p {
-  background: rgba(255,255,255,0);
+  background: rgba(255,255,255,0) !important;
+  margin: 8px 0px !important;
 }
 cpptype {
   color: #00f !important;

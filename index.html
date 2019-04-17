@@ -867,7 +867,7 @@
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2019-04-15 22:47:21" itemprop="dateModified" datetime="2019-04-15T22:47:21+08:00">2019-04-15</time>
+                <time title="Geändert am: 2019-04-16 09:22:10" itemprop="dateModified" datetime="2019-04-16T09:22:10+08:00">2019-04-16</time>
               
             
           </span>
@@ -1171,7 +1171,7 @@ cpparg {
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2019-04-17 00:41:44" itemprop="dateModified" datetime="2019-04-17T00:41:44+08:00">2019-04-17</time>
+                <time title="Geändert am: 2019-04-17 10:11:57" itemprop="dateModified" datetime="2019-04-17T10:11:57+08:00">2019-04-17</time>
               
             
           </span>
@@ -1515,18 +1515,21 @@ cpparg {
 </blockquote>
 <h3 id="Symbol-Table-Section"><a href="#Symbol-Table-Section" class="headerlink" title="Symbol Table Section"></a><code>Symbol Table Section</code></h3><p><code>定义</code></p>
 <p>当Elf64_Shdr::sh_type是SHT_SYMTAB|SHT_DYNSYM时,这个节头指向的节为Symbol Table Section.</p>
+<p>Symbol Table Section是由Elf64_Sym结构组成的数组,这个数组被称为Symbol Table.</p>
 <p><code>作用</code></p>
-<p>保存着需要定位和重定位的符号信息.</p>
+<p>保存着需要定位和重定位的symbolic definition和symbolic reference信息.</p>
 <p><code>位置 尺寸 数量</code></p>
 <p>SHT_SYMTAB|SHT_DYNSYM类型的节头指出位置.</p>
 <p>SHT_SYMTAB|SHT_DYNSYM类型的节头指出尺寸.</p>
 <p>目前规定最多只能有一个.</p>
 <p><code>解释</code></p>
 <p>由Elf64_Sym结构组成的数组.元素尺寸由Elf64_Shdr::e_shentsize指出.元素个数由为Elf64_Shdr::sh_size / Elf64_Shdr::sh_entsize.</p>
+<p>Symbol Table索引0的的数据是固定的,st_shndx为SHN_UNDEF,其它全为0.代表一个未定义的符号索引.</p>
+<p>Symbol Table元素的成员Elf64_Sym::st_name是索引值,给出符号名(字符串)在String Table of String Table Section中的位置,String Table Section开始到符号名的偏移;Elf64_Shdr::sh_link是一个索引值,指出这个Table of String Table Section Header的索引,在Section Header Table中的下标.这样就可以找到符号名了.</p>
 <p><code>注意</code></p>
 <hr>
 <p>当 <em>Elf64_Shdr</em>::<em>sh_type</em> 是 SHT_SYMTAB | SHT_DYNSYM 时,这个节头指向的节为符号表节.</p>
-<p>符号表节是 <em>Elf64_Sym</em> 结构的序列.</p>
+<p>符号表节是Elf64_Sym结构的序列.</p>
 <blockquote>
 <p>An object file’s symbol table holds information needed to locate and relocate a program’s symbolic definitions and references.  A symbol table index is a subscript into this array.</p>
 </blockquote>
@@ -1540,6 +1543,15 @@ cpparg {
 <p>可以多个.</p>
 <p><code>解释</code></p>
 <p>由Elf64_Rel/Elf64_Rela结构组成的数组.元素尺寸由Elf64_Shdr::e_shentsize指出.元素个数由为Elf64_Shdr::sh_size / Elf64_Shdr::sh_entsize.</p>
+<p>Elf64_Rel/Elf64_Rela指出引用的符号(Elf64_Sym),且能计算出要重定位的位置,并告知如何修复重定位.</p>
+<ul>
+<li><p>引用的符号(Elf64_Sym)<br>  Relocation Table元素的成员Elf64_Rel/Elf64_Rela::r_info,可以计算出ELF64_R_SYM,是索引值,Symbol Table下标;Elf64_Shdr::sh_link是一个索引值,在Section Header Table中的下标,间接给出了Relocation Table.这样就可以找到符号(Elf64_Sym)了.</p>
+</li>
+<li><p>要重定位的位置</p>
+</li>
+<li><p>如何修复重定位<br>  Relocation Table元素的成员Elf64_Rel/Elf64_Rela::r_info,可以计算出ELF64_R_TYPE,这个值指出了如何修复.</p>
+</li>
+</ul>
 <p><code>注意</code></p>
 <hr>
 <p>关联节头类型是 SHT_REL | SHT_RELA 的节是重定位节,其内容是 <em>Elf64_Rel</em> | <em>Elf64_Rela</em> 结构数组.数组的元素大小与数量由关联节头给出.</p>
@@ -3605,6 +3617,8 @@ cpparg {
 <p>See above.</p>
 <p><code>R_AMD64_32S</code></p>
 <p>The computed value is truncated to 32–bits. The link-editor verifies that the generated value for the relocation zero-extends to the original 64–bit value.</p>
+<h2 id="ELF64-R-SYM"><a href="#ELF64-R-SYM" class="headerlink" title="ELF64_R_SYM"></a><code>ELF64_R_SYM</code></h2><p>符号表索引值,来自于Elf64_Rela::r_info.得到值的方式为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#define ELF64_R_SYM(info)             ((info)&gt;&gt;8)</span><br><span class="line">#define ELF64_R_TYPE(info)            ((unsigned char)(info))</span><br><span class="line">#define ELF32_R_INFO(sym, type)       (((sym)&lt;&lt;8)+(unsigned char)(type))</span><br><span class="line"></span><br><span class="line">#define ELF64_R_SYM(info)             ((info)&gt;&gt;32)</span><br><span class="line">#define ELF64_R_TYPE(info)            ((Elf64_Word)(info))</span><br><span class="line">#define ELF64_R_INFO(sym, type)       (((Elf64_Xword)(sym)&lt;&lt;32)+ \</span><br><span class="line">                                        (Elf64_Xword)(type))</span><br></pre></td></tr></table></figure>
 <h2 id="Relocation-Calculations"><a href="#Relocation-Calculations" class="headerlink" title="Relocation Calculations"></a><code>Relocation Calculations</code></h2><p>The following notation is used to describe relocation computations:</p>
 <table>
 <thead>
